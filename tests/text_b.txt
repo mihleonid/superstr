@@ -1,0 +1,14 @@
+
+
+
+
+
+
+
+
+
+cc	acc	acc	acc	acc	acc	b	
+cc	acc	acc	acc	bcc	acc	ac	
+cc	acc	acc	bcc	acc	acc	bcc	ac	
+cc	bcc	acc	acc	bcc	acc	acc	
+cc	acc	bcc	acc	acc	acc	ac	
