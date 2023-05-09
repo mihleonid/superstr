@@ -1,4 +1,5 @@
 #define MSTR deque<char>
+#define PENTAGON_TEX_TEMPLATE "tex/pentagon_template.tex"
 vector<MSTR> sqr;
 vector<pair<MSTR,MSTR>> reb;
 void print(const MSTR& s){
@@ -152,7 +153,7 @@ void echo_v(const VI& v){
 	}
 }
 void pentagon(const vector<MSTR>& v){
-	string tex=" \\begin{figure}[H] \\centering \\begin{tikzpicture}[>=latex, xscale=\\tkizx, yscale=\\tkizy] \\node[rectangle, draw, darkgreen, inner sep=5pt] (a) at (7,7) {\\color{red} stra}; \\node[rectangle, draw, darkgreen, inner sep=5pt] (b) at (11,4) {\\color{red} strb}; \\node[rectangle, draw, darkgreen, inner sep=5pt] (c) at (9,0) {\\color{red} strc}; \\node[rectangle, draw, darkgreen, inner sep=5pt] (d) at (5,0) {\\color{red} strd}; \\node[rectangle, draw, darkgreen, inner sep=5pt] (e) at (3,4) {\\color{red} stre}; \\path (a) to [bend left=15] node (ab) {%} (b); \\path (a) to [bend left=10] node (ac) {%} (c); \\path (a) to [bend left=10] node (ad) {%} (d); \\path (a) to [bend left=15] node (ae) {%} (e); \\path (b) to [bend left=15] node (ba) {%} (a); \\path (b) to [bend left=15] node (bc) {%} (c); \\path (b) to [bend left=10] node (bd) {%} (d); \\path (b) to [bend left=10] node (be) {%} (e); \\path (c) to [bend left=10] node (ca) {%} (a); \\path (c) to [bend left=15] node (cb) {%} (b); \\path (c) to [bend left=15] node (cd) {%} (d); \\path (c) to [bend left=10] node (ce) {%} (e); \\path (d) to [bend left=10] node (da) {%} (a); \\path (d) to [bend left=10] node (db) {%} (b); \\path (d) to [bend left=15] node (dc) {%} (c); \\path (d) to [bend left=15] node (de) {%} (e); \\path (e) to [bend left=15] node (ea) {%} (a); \\path (e) to [bend left=10] node (eb) {%} (b); \\path (e) to [bend left=10] node (ec) {%} (c); \\path (e) to [bend left=15] node (ed) {%} (d); \\draw[blue, ->] (a) -- (ab) -- (b); \\draw[blue, ->] (a) -- (ac) -- (c); \\draw[blue, ->] (a) -- (ad) -- (d); \\draw[blue, ->] (a) -- (ae) -- (e); \\draw[blue, ->] (b) -- (ba) -- (a); \\draw[blue, ->] (b) -- (bc) -- (c); \\draw[blue, ->] (b) -- (bd) -- (d); \\draw[blue, ->] (b) -- (be) -- (e); \\draw[blue, ->] (c) -- (ca) -- (a); \\draw[blue, ->] (c) -- (cb) -- (b); \\draw[blue, ->] (c) -- (cd) -- (d); \\draw[blue, ->] (c) -- (ce) -- (e); \\draw[blue, ->] (d) -- (da) -- (a); \\draw[blue, ->] (d) -- (db) -- (b); \\draw[blue, ->] (d) -- (dc) -- (c); \\draw[blue, ->] (d) -- (de) -- (e); \\draw[blue, ->] (e) -- (ea) -- (a); \\draw[blue, ->] (e) -- (eb) -- (b); \\draw[blue, ->] (e) -- (ec) -- (c); \\draw[blue, ->] (e) -- (ed) -- (d); \\end{tikzpicture} \\label{fig:gr1img1} \\end{figure}";
+	string tex=file_get_contents(PENTAGON_TEX_TEMPLATE);
 	int k=0;
 	foris(i,v){
 		foris(j,v){
@@ -163,7 +164,7 @@ void pentagon(const vector<MSTR>& v){
 				if(k==tex.sz()){
 					ret;
 				}
-				if(tex[k]=='%'){
+				if(tex[k]=='~'){
 					++k;
 					break;
 				}
