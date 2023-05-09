@@ -574,6 +574,18 @@ signed main(){
 	}
 	ret 0;
 }
+[[nodiscard]] string readall(istream& in){
+	string ans;
+	char ch;
+	while(in.get(ch)){
+			ans+=ch;
+	}
+	return ans;
+}
+[[nodiscard]] string file_get_contents(const string& name){
+	ifstream ifs(name, ios::binary);
+	ret readall(ifs);
+}
 ///SOLUTION///
 void precalc(){
 }
