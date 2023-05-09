@@ -1,0 +1,75 @@
+\section{Introduction}
+\label{sec:intro}
+The {\em shortest common superstring problem} (abbreviated as SCS) is:
+given a~set of strings, find a~shortest string that contains all of them as
+substrings. This problem finds applications in genome assembly~\cite{waterman1995introduction, pevzner2001eulerian}, and data compression~\cite{GMS1980, phdthesis, storer1987data}. We refer the reader to the excellent surveys~\cite{gevezes2014shortest, mucha2007tutorial} for an overview of SCS, its applications and algorithms.  SCS is known to be $\mathbf{NP}$-hard~\cite{GMS1980} and even $\mathbf{MAX}$-$\mathbf{SNP}$-hard~\cite{BJLTY1991}, but it admits constant-factor approximation in polynomial time.
+
+The best known approximation ratios are $2\frac{11}{23}$ due to Mucha~\cite{M2013} 
+and $2\frac{11}{30}$ due to Paluch~\cite{P14} 
+(see \cite[Section~2.1]{GKM13} for an overview of the 
+previous approximation algorithms
+and inapproximability results). While these approximation algorithms use an algorithm for Maximum Weight Perfect Matching as a~subroutine, the $30$ years old \emph{Greedy Conjecture}~\cite{storer1987data, TU1988, T1989, BJLTY1991} claims that the trivial \emph{Greedy Algorithm}, whose pseudocode is given in Algorithm~\ref{algo:ga}, is 2-approximate. Ukkonen~\cite{ukkonen1990linear} shows that for a fixed alphabet, the Greedy Algorithm can be implemented in linear time. It should be noted that GA is not deterministic as we do not specify how to break ties in case when there are many pairs of strings with maximum overlap. For this reason, GA may produce different superstrings for the same input.
+
+
+\begin{algorithm}[ht]
+\caption{Greedy Algorithm (GA)}\label{algo:ga}
+\hspace*{\algorithmicindent} \textbf{Input:} set of strings~${\cal S}$.\\
+\hspace*{\algorithmicindent} \textbf{Output:} a~superstring~for $\mathcal{S}$.
+\begin{algorithmic}[1]
+\While{$\mathcal{S}$ contains at least two strings}
+\State extract from $\mathcal{S}$ two strings with the maximum overlap
+\State add to $\mathcal{S}$ the shortest superstring of these two strings
+\EndWhile
+\State return the only string from $\mathcal{S}$
+\end{algorithmic}
+\end{algorithm}
+
+\newtheorem*{gc}{Greedy Conjecture}
+\begin{gc}
+For any set of strings~$\mathcal{S}$, $\operatorname{GA}(\mathcal{S})$ constructs a~superstring that is at most twice longer than an optimal one.
+\end{gc}
+
+
+Blum et al.~\cite{BJLTY1991} prove that the Greedy Algorithm returns a $4$-approximation of SCS, and Kaplan and Shafrir~\cite{KS2005} improve this bound to~$3.5$. A~slight modification of the Greedy Algorithm gives a $3$-approximation of SCS~\cite{BJLTY1991}, and other greedy algorithms are studied from theoretical~\cite{BJLTY1991,rivals2018superstrings} and practical perspectives~\cite{romero2004experimental, cazaux2018practical}.
+
+It is known that the Greedy Conjecture holds for the case when all input strings have length at most $3$~\cite{TU1988, cazaux20143}, and it was recently shown to hold in the case of strings of length $4$~\cite{kulikov2015greedy}. Also, the Greedy Conjecture holds if the Greedy Algorithm happens to merge strings in a particular order~\cite{weinard2006greedy, laube2005conditional}. The Greedy Algorithm gives a $2$-approximation of a~different metric called compression~\cite{TU1988}. The compression is defined as the sum of the lengths of all input strings minus the length of a superstring
+(hence, it is the number of symbols saved with respect to a~naive superstring resulting from concatenating the input strings).
+
+%following simple 
+%greedy algorithm is 2-approximate: while there are more than two strings 
+%in the set, take two of them with the maximum overlap and replace them
+%with their shortest superstring.
+
+
+Most of the approaches for approximating SCS are based on the
+{\em overlap graph} or the equivalent \emph{suffix graph}. The suffix graph has input strings as nodes, and a pair of nodes 
+is joined by an~arc of weight equal to their suffix (see Section~\ref{sec:def_scs} for formal definitions of overlap and suffix).
+SCS is equivalent to (the asymmetric version of) the Traveling Salesman Problem (TSP) in the suffix graph. While TSP cannot be approximated within any polynomial time computable function unless $\mathbf{P}=\mathbf{NP}$~\cite{SG1976}, its special case corresponding to SCS can be approximated within a constant factor.\footnote{We remark that SCS is also a special case of TSP for costs satisfying the triangle inequaliy. This case of TSP can be approximated within a constant factor~\cite{svensson2018constant}, but this factor is currently much worse than that for SCS.} We do not know the full characterization of the graphs in this special case, but we know some of their properties: Monge inequality~\cite{monge} and Triple inequality~\cite{weinard2006greedy}. These properties are provably not sufficient for proving Greedy Conjecture~\cite{weinard2006greedy, laube2005conditional}. 
+
+While the overlap and suffix graphs give a~convenient graph structure, our current knowledge of their properties is provably not sufficient for showing strong approximation factors. Thus, the known approximation algorithms (including the Greedy Algorithm) estimate the approximation ratio via the overlap graph, and also separately take into account some string properties not represented by the overlap graph. The goal of this work is to develop a simple combinatorial framework which captures all features of the input strings needed for proving approximation ratios of algorithms.
+
+\subsection{Our contributions}
+
+We continue the study of the so-called {\em hierarchical graph}
+introduced by Golovnev et al.~\cite{scs_exact}. (See also~\cite{cr16} for a related notion of the superstring graph.) This graph is designed specifically 
+for the SCS problem, in some sense it generalizes de~Bruijn graph, and it contains more information about the input strings
+than just all pairwise overlaps. Given an instance of SCS, the vertex set of the corresponding hierarchical graph is just the set of substrings of all the input strings. For a string $s$ and two symbols $\alpha, \beta$, the graph contains the arcs: $(s,s\alpha)$ and $(\beta s, s)$. Now, every superstring of the given set of string corresponds to an Eulerian walk in the hierarchical graph (which passes through the vertices corresponding to the input strings), and vice versa. (See Section~\ref{sec:def_hier} for formal definition and statements.)
+
+\subsubsection{Collapsing Conjecture}
+We define a simple normalization procedure of a walk in the hierarchical graph: replace the pair of arcs $(\alpha s, \alpha s \beta), (\alpha s \beta, s\beta)$ with the pair $(\alpha s, s ), (s , s\beta)$ as long as it does not violate connectivity of the walk. It is easy to see that such a normalization never increases the length of the corresponding solution of SCS. 
+First, we observe a surprising property of this normalization procedure: if one takes \emph{any} solution, doubles all of its arcs in the hierarchical graph, and then applies the normalization procedure, then the resulting set of arcs is always the same (i.e., it does not depend on the initial solution). Collapsing Conjecture makes this observation formal (see Section~\ref{sec:collapsing}). Note that this conjecture implies an extremely simple 2-approximate algorithm for Shortest Common Superstring: take any solution (for example, write down all input strings one after another), then double each arc in the hierarchical graph, and apply the simple normalization procedure. This procedure will result in some superstring $S$. On the other hand, if one started with an optimal solution, doubled each of its arcs, and normalized the result, then the resulting solution would have length at most twice the length of the optimal solution. By Collapsing Conjecture, this resulting superstring would also be $S$, which implies that $S$ is a $2$-approximation.
+
+\subsubsection{Greedy Hierarchical Conjecture}
+We also propose a simple and natural greedy algorithm for SCS in the hierarchical graph: start from the nodes corresponding to the input strings, and greedily build an Eulerian walk passing through all of them. 
+While this Greedy Hierarchical Algorithm (GHA) is as simple as the Greedy Algorithm (GA), it provably performs better in some cases. For example, there are two well-known polynomially solvable special cases of SCS: strings of length~$2$ and
+a~spectrum of a~string. While GA does not always find optimal solutions in these cases, GHA solves them exactly (see Sections~\ref{sec:ghatwo} and~\ref{sec:ghaspectrum}).
+
+Greedy Hierarchical Conjecture (see Section~\ref{sec:greedy_hier}) claims that the set of arcs produced by GHA exactly matches the set of arcs from the Collapsing Conjecture: whichever initial solution one takes, after doubling its arcs and normalization, the resulting set of arcs is exactly the solution found by GHA. Clearly, this conjecture implies Collapsing Conjecture. Perhaps surprisingly, we prove that the two conjectures are equivalent (see Section~\ref{sec:equiv}): if all doubled solutions after normalization result in the same set of arcs, then this set of arcs is the GHA solution.
+
+The weak form of Greedy Hierarchical Conjecture claims that GHA is a 2-approximate algorithm for SCS. 
+We prove (see Section~\ref{sec:gr_im_wghc}) that GHA is an instantiation of GA with some tie-breaking rule. That is, there is an algorithm which always merges some pair of strings with the longest overlap and outputs the same solution as GHA. This result has two consequences. First, by the known results for GA, we immediately have that GHA finds a $3.5$-approximation for SCS. Second, this gives us that Greedy Conjecture implies Weak Greedy Hierarchical Conjecture. 
+
+\subsubsection{Evidence for the Conjectures}
+We support the Collapsing Conjecture (and the equivalent Greedy Hierarchical Conjecture) by proving its special case and verifying it empirically. We prove the conjecture for the special case where all input strings have length at most $3$, which until recently had been the only case where the Greedy Conjecture was proven (see Section~\ref{subsec:scs3}). Despite tesing the conjecture on millions of datasets (both hand-crafted and generated randomly according to various distributions), we have not found a counter-example. Note that even the Weak Greedy Hierarchical Conjecture suffices for getting a $2$-approximation for SCS, and this conjecture is not harder to prove than the standard Greedy Conjecture.
+We implemented the Greedy Hierarchical Algorithm~\cite{github}, and we invite the reader to its~web interface~\cite{webpage} to see step by step executions of the described algorithms and to verify the conjectures on
+custom datasets.

@@ -1,0 +1,51 @@
+initial hierarchical graph
+we first process input strings
+ababc is an input string hence we add two bottom edges to it: abab->ababc->babc
+ 
+baba is an input string hence we add two bottom edges to it: bab->baba->aba
+ 
+cabab is an input string hence we add two bottom edges to it: caba->cabab->abab
+ 
+we now process nodes from top to bottom in lexicographical ordering
+consider node abab
+abab is balanced, skip it
+consider node baba
+baba is balanced, skip it
+consider node babc
+to balance babc, add edge babc->abc
+ 
+consider node caba
+to balance caba, add edge cab->caba
+ 
+consider node aba
+to balance aba, add edge aba->ba
+ 
+consider node abc
+to balance abc, add edge abc->bc
+ 
+consider node bab
+to balance bab, add edge ba->bab
+ 
+consider node cab
+to balance cab, add edge ca->cab
+ 
+consider node ba
+adding edges b->ba->a to connect the component to eps
+ 
+consider node bc
+to balance bc, add edge bc->c
+ 
+consider node ca
+to balance ca, add edge c->ca
+ 
+consider node a
+to balance a, add edge a->eps
+ 
+consider node b
+to balance b, add edge eps->b
+ 
+consider node c
+adding edges eps->c->eps to connect the component to eps
+ 
+Done!
+this is the greedy hierarchical solution: cababcbaba

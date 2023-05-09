@@ -1,0 +1,92 @@
+initial hierarchical graph
+this is the initial solution: cabababc
+we now double every edge of the initial solution
+ 
+we now start collapsing
+process ababc
+we will now collapse the edges abab->ababc->babc
+ 
+ababc is an input node so we cannot collapse its pair of edges
+process cabab
+we will now collapse the edges caba->cabab->abab
+ 
+cabab is an input node so we cannot collapse its pair of edges
+process abab
+we will now collapse the edges aba->abab->bab
+ 
+we will now collapse the edges aba->abab->bab
+ 
+we will now collapse the edges aba->abab->bab
+ 
+there no lower edges, skip this node
+process baba
+we will now collapse the edges bab->baba->aba
+ 
+baba is an input node so we cannot collapse its pair of edges
+process babc
+we will now collapse the edges bab->babc->abc
+ 
+there no lower edges, skip this node
+process caba
+we will now collapse the edges cab->caba->aba
+ 
+there no lower edges, skip this node
+process aba
+we will now collapse the edges ab->aba->ba
+ 
+we will now collapse the edges ab->aba->ba
+ 
+there no lower edges, skip this node
+process abc
+we will now collapse the edges ab->abc->bc
+ 
+there no lower edges, skip this node
+process bab
+we will now collapse the edges ba->bab->ab
+ 
+we will now collapse the edges ba->bab->ab
+ 
+there no lower edges, skip this node
+process cab
+we will now collapse the edges ca->cab->ab
+ 
+there no lower edges, skip this node
+process ab
+we will now collapse the edges a->ab->b
+ 
+we will now collapse the edges a->ab->b
+ 
+we will now collapse the edges a->ab->b
+ 
+there no lower edges, skip this node
+process ba
+we will now collapse the edges b->ba->a
+ 
+the pair of edges b->ba->a cannot be mirrored as it would break connectivity
+process bc
+we will now collapse the edges b->bc->c
+ 
+there no lower edges, skip this node
+process ca
+we will now collapse the edges c->ca->a
+ 
+there no lower edges, skip this node
+process a
+we will now collapse the edges eps->a->eps
+ 
+we will now collapse the edges eps->a->eps
+ 
+there no lower edges, skip this node
+process b
+we will now collapse the edges eps->b->eps
+ 
+we will now collapse the edges eps->b->eps
+ 
+there no lower edges, skip this node
+process c
+we will now collapse the edges eps->c->eps
+ 
+we will now collapse the edges eps->c->eps
+ 
+the pair of edges eps->c->eps cannot be mirrored as it would break connectivity
+Done!
