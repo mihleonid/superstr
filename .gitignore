@@ -1,6 +1,6 @@
-.swp
-.swo
-.svo
+*.swp
+*.swo
+*.svo
 *.bak
 tmp/
 a.out
