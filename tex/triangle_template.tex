@@ -1,0 +1,65 @@
+\documentclass[10pt,a4paper]{article}    % А4 бумага, шрифт 10
+\usepackage[top=2cm, left=1cm, right=1cm, bottom=2cm]{geometry} % отступыы
+\usepackage{cmap}                        % поиск в PDF
+\usepackage[T2A]{fontenc}                % кодировка
+\usepackage[utf8]{inputenc}              % кодировка исходного текста
+\usepackage[english,russian]{babel}      % локализация и переносы
+\usepackage[unicode, pdftex]{hyperref}   % настройки ссылок и PDF
+\usepackage{pdflscape}
+\usepackage{tikz}
+\usepackage[outputdir=build]{minted}
+\usepackage{titlesec}
+
+\usetikzlibrary{shapes,arrows}
+\title{Треугольник}
+\author{Triangle Drawer}
+\date{\today}
+
+\def\tkizx{2.4}
+\def\tkizy{2.7}
+\definecolor{color0}{rgb}{1,0,0}
+\definecolor{color1}{rgb}{1,0.5,0}
+\definecolor{color2}{rgb}{1,1,0}
+\definecolor{color3}{rgb}{0,0.6,0}
+\definecolor{color4}{rgb}{0,0,0}
+\definecolor{color5}{rgb}{1,0,1}
+\definecolor{color6}{rgb}{0,0,1}
+
+
+\begin{document}
+\begin{landscape}
+\thispagestyle{empty}
+
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[>=latex, xscale=\tkizx, yscale=\tkizy]
+	\node[rectangle, draw, color3, inner sep=5pt] (a) at (8,7) {\color{color0} stra};
+	\node[rectangle, draw, color3, inner sep=5pt] (b) at (12,1) {\color{color0} strb};
+	\node[rectangle, draw, color3, inner sep=5pt] (c) at (4,1) {\color{color0} strc};
+	\path (a) to [bend left=15] node (ab) {~} (b);
+	\path (a) to [bend left=15] node (ac) {~} (c);
+	\path (b) to [bend left=15] node (ba) {~} (a);
+	\path (b) to [bend left=15] node (bc) {~} (c);
+	\path (c) to [bend left=15] node (ca) {~} (a);
+	\path (c) to [bend left=15] node (cb) {~} (b);
+	\draw[`, ->] (a) -- (ab);
+	\draw[`, ->] (ab) -- (b);
+	\draw[`, ->] (a) -- (ac);
+	\draw[`, ->] (ac) -- (c);
+	\draw[`, ->] (b) -- (ba);
+	\draw[`, ->] (ba) -- (a);
+	\draw[`, ->] (b) -- (bc);
+	\draw[`, ->] (bc) -- (c);
+	\draw[`, ->] (c) -- (ca);
+	\draw[`, ->] (ca) -- (a);
+	\draw[`, ->] (c) -- (cb);
+	\draw[`, ->] (cb) -- (b);
+\end{tikzpicture}
+% \caption{\small Подпись к картинке}
+\label{fig:graph}
+\end{figure}
+
+
+\end{landscape}
+\end{document}

@@ -1,10 +1,10 @@
-\documentclass[10pt,a4paper]{article}       % А4 бумага, шрифт 10
+\documentclass[10pt,a4paper]{article}    % А4 бумага, шрифт 10
 \usepackage[top=2cm, left=1cm, right=1cm, bottom=2cm]{geometry} % отступыы
-\usepackage{cmap}					    % поиск в PDF
-\usepackage[T2A]{fontenc}			    % кодировка
-\usepackage[utf8]{inputenc}			    % кодировка исходного текста
-\usepackage[english,russian]{babel}	    % локализация и переносы
-\usepackage[unicode, pdftex]{hyperref}   % настройки ссылок и PDF1
+\usepackage{cmap}                        % поиск в PDF
+\usepackage[T2A]{fontenc}                % кодировка
+\usepackage[utf8]{inputenc}              % кодировка исходного текста
+\usepackage[english,russian]{babel}      % локализация и переносы
+\usepackage[unicode, pdftex]{hyperref}   % настройки ссылок и PDF
 \usepackage{pdflscape}
 \usepackage{tikz}
 \usepackage[outputdir=build]{minted}
@@ -17,10 +17,13 @@
 
 \def\tkizx{2.5}
 \def\tkizy{2.5}
-\definecolor{bg}{rgb}{0.95,0.95,0.92}
-\definecolor{darkgreen}{rgb}{0,0.6,0}
-\definecolor{red2green}{rgb}{1,0.6,0}
-\definecolor{blue2magenta}{rgb}{0.5,0,1}
+\definecolor{color0}{rgb}{1,0,0}
+\definecolor{color1}{rgb}{1,0.5,0}
+\definecolor{color2}{rgb}{1,1,0}
+\definecolor{color3}{rgb}{0,0.6,0}
+\definecolor{color4}{rgb}{0,0,0}
+\definecolor{color5}{rgb}{1,0,1}
+\definecolor{color6}{rgb}{0,0,1}
 
 
 \begin{document}
@@ -31,10 +34,10 @@
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[>=latex, xscale=\tkizx, yscale=\tkizy]
-	\node[rectangle, draw, darkgreen, inner sep=5pt] (a) at (5,7) {\color{red} stra};
-	\node[rectangle, draw, darkgreen, inner sep=5pt] (b) at (11,7) {\color{red} strb};
-	\node[rectangle, draw, darkgreen, inner sep=5pt] (c) at (11,1) {\color{red} strc};
-	\node[rectangle, draw, darkgreen, inner sep=5pt] (d) at (5,1) {\color{red} strd};
+	\node[rectangle, draw, color3, inner sep=5pt] (a) at (5,7) {\color{color0} stra};
+	\node[rectangle, draw, color3, inner sep=5pt] (b) at (11,7) {\color{color0} strb};
+	\node[rectangle, draw, color3, inner sep=5pt] (c) at (11,1) {\color{color0} strc};
+	\node[rectangle, draw, color3, inner sep=5pt] (d) at (5,1) {\color{color0} strd};
 	\path (a) to [bend left=15] node (ab) {~} (b);
 	\path (a) to [bend left=15] node (ac) {~} (c);
 	\path (a) to [bend left=15] node (ad) {~} (d);
@@ -47,30 +50,30 @@
 	\path (d) to [bend left=15] node (da) {~} (a);
 	\path (d) to [bend left=15] node (db) {~} (b);
 	\path (d) to [bend left=15] node (dc) {~} (c);
-	\draw[blue, ->] (a) -- (ab);
-	\draw[blue, ->] (ab) -- (b);
-	\draw[blue, ->] (a) -- (ac);
-	\draw[blue, ->] (ac) -- (c);
-	\draw[blue, ->] (a) -- (ad);
-	\draw[blue, ->] (ad) -- (d);
-	\draw[blue, ->] (b) -- (ba);
-	\draw[blue, ->] (ba) -- (a);
-	\draw[blue, ->] (b) -- (bc);
-	\draw[blue, ->] (bc) -- (c);
-	\draw[blue, ->] (b) -- (bd);
-	\draw[blue, ->] (bd) -- (d);
-	\draw[blue, ->] (c) -- (ca);
-	\draw[blue, ->] (ca) -- (a);
-	\draw[blue, ->] (c) -- (cb);
-	\draw[blue, ->] (cb) -- (b);
-	\draw[blue, ->] (c) -- (cd);
-	\draw[blue, ->] (cd) -- (d);
-	\draw[blue, ->] (d) -- (da);
-	\draw[blue, ->] (da) -- (a);
-	\draw[blue, ->] (d) -- (db);
-	\draw[blue, ->] (db) -- (b);
-	\draw[blue, ->] (d) -- (dc);
-	\draw[blue, ->] (dc) -- (c);
+	\draw[`, ->] (a) -- (ab);
+	\draw[`, ->] (ab) -- (b);
+	\draw[`, ->] (a) -- (ac);
+	\draw[`, ->] (ac) -- (c);
+	\draw[`, ->] (a) -- (ad);
+	\draw[`, ->] (ad) -- (d);
+	\draw[`, ->] (b) -- (ba);
+	\draw[`, ->] (ba) -- (a);
+	\draw[`, ->] (b) -- (bc);
+	\draw[`, ->] (bc) -- (c);
+	\draw[`, ->] (b) -- (bd);
+	\draw[`, ->] (bd) -- (d);
+	\draw[`, ->] (c) -- (ca);
+	\draw[`, ->] (ca) -- (a);
+	\draw[`, ->] (c) -- (cb);
+	\draw[`, ->] (cb) -- (b);
+	\draw[`, ->] (c) -- (cd);
+	\draw[`, ->] (cd) -- (d);
+	\draw[`, ->] (d) -- (da);
+	\draw[`, ->] (da) -- (a);
+	\draw[`, ->] (d) -- (db);
+	\draw[`, ->] (db) -- (b);
+	\draw[`, ->] (d) -- (dc);
+	\draw[`, ->] (dc) -- (c);
 \end{tikzpicture}
 % \caption{\small Подпись к картинке}
 \label{fig:graph}

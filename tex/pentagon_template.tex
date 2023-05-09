@@ -1,26 +1,29 @@
-\documentclass[10pt,a4paper]{article}       % А4 бумага, шрифт 10
+\documentclass[10pt,a4paper]{article}    % А4 бумага, шрифт 10
 \usepackage[top=2cm, left=1cm, right=1cm, bottom=2cm]{geometry} % отступыы
-\usepackage{cmap}					    % поиск в PDF
-\usepackage[T2A]{fontenc}			    % кодировка
-\usepackage[utf8]{inputenc}			    % кодировка исходного текста
-\usepackage[english,russian]{babel}	    % локализация и переносы
-\usepackage[unicode, pdftex]{hyperref}   % настройки ссылок и PDF1
+\usepackage{cmap}                        % поиск в PDF
+\usepackage[T2A]{fontenc}                % кодировка
+\usepackage[utf8]{inputenc}              % кодировка исходного текста
+\usepackage[english,russian]{babel}      % локализация и переносы
+\usepackage[unicode, pdftex]{hyperref}   % настройки ссылок и PDF
 \usepackage{pdflscape}
 \usepackage{tikz}
 \usepackage[outputdir=build]{minted}
 \usepackage{titlesec}
 
 \usetikzlibrary{shapes,arrows}
-\title{Тетрагон}
-\author{Tetragon Drawer}
+\title{Пентагон}
+\author{Pentagon Drawer}
 \date{\today}
 
 \def\tkizx{2.5}
 \def\tkizy{2.5}
-\definecolor{bg}{rgb}{0.95,0.95,0.92}
-\definecolor{darkgreen}{rgb}{0,0.6,0}
-\definecolor{red2green}{rgb}{1,0.6,0}
-\definecolor{blue2magenta}{rgb}{0.5,0,1}
+\definecolor{color0}{rgb}{1,0,0}
+\definecolor{color1}{rgb}{1,0.5,0}
+\definecolor{color2}{rgb}{1,1,0}
+\definecolor{color3}{rgb}{0,0.6,0}
+\definecolor{color4}{rgb}{0,0,0}
+\definecolor{color5}{rgb}{1,0,1}
+\definecolor{color6}{rgb}{0,0,1}
 
 
 \begin{document}
@@ -57,46 +60,46 @@
 	\path (e) to [bend left=10] node (eb) {~} (b);
 	\path (e) to [bend left=10] node (ec) {~} (c);
 	\path (e) to [bend left=15] node (ed) {~} (d);
-	\draw[blue, ->] (a) -- (ab);
-	\draw[blue, ->] (ab) -- (b);
-	\draw[blue, ->] (a) -- (ac);
-	\draw[blue, ->] (ac) -- (c);
-	\draw[blue, ->] (a) -- (ad);
-	\draw[blue, ->] (ad) -- (d);
-	\draw[blue, ->] (a) -- (ae);
-	\draw[blue, ->] (ae) -- (e);
-	\draw[blue, ->] (b) -- (ba);
-	\draw[blue, ->] (ba) -- (a);
-	\draw[blue, ->] (b) -- (bc);
-	\draw[blue, ->] (bc) -- (c);
-	\draw[blue, ->] (b) -- (bd);
-	\draw[blue, ->] (bd) -- (d);
-	\draw[blue, ->] (b) -- (be);
-	\draw[blue, ->] (be) -- (e);
-	\draw[blue, ->] (c) -- (ca);
-	\draw[blue, ->] (ca) -- (a);
-	\draw[blue, ->] (c) -- (cb);
-	\draw[blue, ->] (cb) -- (b);
-	\draw[blue, ->] (c) -- (cd);
-	\draw[blue, ->] (cd) -- (d);
-	\draw[blue, ->] (c) -- (ce);
-	\draw[blue, ->] (ce) -- (e);
-	\draw[blue, ->] (d) -- (da);
-	\draw[blue, ->] (da) -- (a);
-	\draw[blue, ->] (d) -- (db);
-	\draw[blue, ->] (db) -- (b);
-	\draw[blue, ->] (d) -- (dc);
-	\draw[blue, ->] (dc) -- (c);
-	\draw[blue, ->] (d) -- (de);
-	\draw[blue, ->] (de) -- (e);
-	\draw[blue, ->] (e) -- (ea);
-	\draw[blue, ->] (ea) -- (a);
-	\draw[blue, ->] (e) -- (eb);
-	\draw[blue, ->] (eb) -- (b);
-	\draw[blue, ->] (e) -- (ec);
-	\draw[blue, ->] (ec) -- (c);
-	\draw[blue, ->] (e) -- (ed);
-	\draw[blue, ->] (ed) -- (d);
+	\draw[`, ->] (a) -- (ab);
+	\draw[`, ->] (ab) -- (b);
+	\draw[`, ->] (a) -- (ac);
+	\draw[`, ->] (ac) -- (c);
+	\draw[`, ->] (a) -- (ad);
+	\draw[`, ->] (ad) -- (d);
+	\draw[`, ->] (a) -- (ae);
+	\draw[`, ->] (ae) -- (e);
+	\draw[`, ->] (b) -- (ba);
+	\draw[`, ->] (ba) -- (a);
+	\draw[`, ->] (b) -- (bc);
+	\draw[`, ->] (bc) -- (c);
+	\draw[`, ->] (b) -- (bd);
+	\draw[`, ->] (bd) -- (d);
+	\draw[`, ->] (b) -- (be);
+	\draw[`, ->] (be) -- (e);
+	\draw[`, ->] (c) -- (ca);
+	\draw[`, ->] (ca) -- (a);
+	\draw[`, ->] (c) -- (cb);
+	\draw[`, ->] (cb) -- (b);
+	\draw[`, ->] (c) -- (cd);
+	\draw[`, ->] (cd) -- (d);
+	\draw[`, ->] (c) -- (ce);
+	\draw[`, ->] (ce) -- (e);
+	\draw[`, ->] (d) -- (da);
+	\draw[`, ->] (da) -- (a);
+	\draw[`, ->] (d) -- (db);
+	\draw[`, ->] (db) -- (b);
+	\draw[`, ->] (d) -- (dc);
+	\draw[`, ->] (dc) -- (c);
+	\draw[`, ->] (d) -- (de);
+	\draw[`, ->] (de) -- (e);
+	\draw[`, ->] (e) -- (ea);
+	\draw[`, ->] (ea) -- (a);
+	\draw[`, ->] (e) -- (eb);
+	\draw[`, ->] (eb) -- (b);
+	\draw[`, ->] (e) -- (ec);
+	\draw[`, ->] (ec) -- (c);
+	\draw[`, ->] (e) -- (ed);
+	\draw[`, ->] (ed) -- (d);
 \end{tikzpicture}
 % \caption{\small Подпись к картинке}
 \label{fig:graph}
