@@ -1,0 +1,8 @@
+.swp
+.swo
+.svo
+*.bak
+tmp/
+a.out
+b.out
+tmp.txt
