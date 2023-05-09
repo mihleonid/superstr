@@ -1,6 +1,8 @@
 #define MSTR deque<char>
+#define HEXAGON_TEX "tex/hexagon_template.tex"
 #define PENTAGON_TEX "tex/pentagon_template.tex"
 #define TETRAGON_TEX "tex/tetragon_template.tex"
+#define TRIANGLE_TEX "tex/triangle_template.tex"
 vector<MSTR> sqr;
 vector<pair<MSTR,MSTR>> reb;
 void print(const MSTR& s){
