@@ -1,5 +1,6 @@
 #define MSTR deque<char>
-#define PENTAGON_TEX_TEMPLATE "tex/pentagon_template.tex"
+#define PENTAGON_TEX "tex/pentagon_template.tex"
+#define TETRAGON_TEX "tex/tetragon_template.tex"
 vector<MSTR> sqr;
 vector<pair<MSTR,MSTR>> reb;
 void print(const MSTR& s){
@@ -152,8 +153,8 @@ void echo_v(const VI& v){
 		cout<<" + "<<v[i]<<char((char)i+'a');
 	}
 }
-void pentagon(const vector<MSTR>& v){
-	string tex=file_get_contents(PENTAGON_TEX_TEMPLATE);
+void draw_graph(const vector<MSTR>& v, const string& tpl_path){
+	string tex=file_get_contents(tpl_path);
 	int k=0;
 	foris(i,v){
 		foris(j,v){

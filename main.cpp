@@ -15,6 +15,8 @@ void solve(){
 	br.pb(str("aabbbbbbbbbbbaabbbbbbbbbbba"));
 	br.pb(str("bbbbbbbbbbbaabbbbbbbbbbbaa"));
 	br.pb(str("abbbbbbbbbbbaaaa"));
+	draw_graph(br,PENTAGON_TEX);
+	ret;
 	//VI ord={3,2,1,4,0};
 	VI ord={0,1,2,3,4};
 	MSTR s=br[ord[0]];
@@ -30,8 +32,6 @@ void solve(){
 	br.pb(str("baabaa"));
 	br.pb(str("abaaaa"));
 	*/
-	pentagon(br);
-	ret;
 	/*
 	br.pb(str("aaabaab"));
 	br.pb(str("baabaaba"));
