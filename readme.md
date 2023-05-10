@@ -3,6 +3,8 @@
 |-|-|
 |GC|gready conjecture|
 |GA|gready algorithm|
+|CA|collapsing algorithm|
+|CSC|collapsing superstring conjecture|
 |UC|uniform conjecture|
 |PC|prime conjecture|
 |PUC|prime UC|
