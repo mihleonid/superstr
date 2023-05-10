@@ -1,2 +1,2 @@
 all:
-	g++ -O3 main.cpp && ./a.out
+	g++ -O3 --std=gnu++20 main.cpp && ./a.out
