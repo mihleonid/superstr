@@ -12,10 +12,15 @@ void solve(){
 	vector<MSTR> br;
 	br.pb(str("aaaaabbbbbbbbbbb"));
 	br.pb(str("aaabbbbbbbbbbbaa"));
-	//br.pb(str("aabbbbbbbbbbbaabbbbbbbbbbba"));
-	//br.pb(str("bbbbbbbbbbbaabbbbbbbbbbbaa"));
+	br.pb(str("aabbbbbbbbbbbaabbbbbbbbbbba"));
+	br.pb(str("bbbbbbbbbbbaabbbbbbbbbbbaa"));
 	br.pb(str("abbbbbbbbbbbaaaa"));
-	draw_graph(br);
+	VPII mord;
+	mord.pb({3,2});
+	mord.pb({2,1});
+	mord.pb({1,4});
+	mord.pb({4,0});
+	draw_graph(br,mord);
 	ret;
 	//VI ord={3,2,1,4,0};
 	VI ord={0,1,2,3,4};

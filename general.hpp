@@ -212,14 +212,11 @@ void draw_graph(const vector<MSTR>& v, const string& tpl_path, const VPII& mord)
 	}
 	int l=-1;
 	int m=-1;
-	/*
-	fori(i,n){
-		fori(j,n){
-			backtick[++l]=
-		}
+	foris(i,mord){
+		int idx=mord[i].x*n+mord[i].y;
+		backtick[idx*2]=i;
+		backtick[idx*2+1]=i;
 	}
-	l=-1;
-	*/
 	foris(i,v){
 		foris(j,v){
 			while(1){
