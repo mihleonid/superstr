@@ -24,6 +24,8 @@
 \definecolor{color4}{rgb}{0,0,0}
 \definecolor{color5}{rgb}{1,0,1}
 \definecolor{color6}{rgb}{0,0,1}
+\definecolor{color_string}{rgb}{1,0,0}
+\definecolor{color_border}{rgb}{0,0.6,0}
 
 
 \begin{document}
@@ -34,9 +36,9 @@
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[>=latex, xscale=\tkizx, yscale=\tkizy]
-	\node[rectangle, draw, color3, inner sep=5pt] (a) at (8,7) {\color{red} @};
-	\node[rectangle, draw, color3, inner sep=5pt] (b) at (12,1) {\color{red} @};
-	\node[rectangle, draw, color3, inner sep=5pt] (c) at (4,1) {\color{red} @};
+	\node[rectangle, draw, color_border, inner sep=5pt] (a) at (8,7) {\color{color_string} @};
+	\node[rectangle, draw, color_border, inner sep=5pt] (b) at (12,1) {\color{color_string} @};
+	\node[rectangle, draw, color_border, inner sep=5pt] (c) at (4,1) {\color{color_string} @};
 	%~ for drawing a->a
 	\path (a) to [bend left=15] node (ab) {~} (b);
 	\path (a) to [bend left=15] node (ac) {~} (c);

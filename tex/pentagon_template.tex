@@ -24,6 +24,8 @@
 \definecolor{color4}{rgb}{0,0,0}
 \definecolor{color5}{rgb}{1,0,1}
 \definecolor{color6}{rgb}{0,0,1}
+\definecolor{color_string}{rgb}{1,0,0}
+\definecolor{color_border}{rgb}{0,0.6,0}
 
 
 \begin{document}
@@ -35,11 +37,11 @@
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[>=latex, xscale=\tkizx, yscale=\tkizy]
-	\node[rectangle, draw, darkgreen, inner sep=5pt] (a) at (7,7) {\color{red} @};
-	\node[rectangle, draw, darkgreen, inner sep=5pt] (b) at (11,4) {\color{red} @};
-	\node[rectangle, draw, darkgreen, inner sep=5pt] (c) at (9,0) {\color{red} @};
-	\node[rectangle, draw, darkgreen, inner sep=5pt] (d) at (5,0) {\color{red} @};
-	\node[rectangle, draw, darkgreen, inner sep=5pt] (e) at (3,4) {\color{red} @};
+	\node[rectangle, draw, color_border, inner sep=5pt] (a) at (7,7) {\color{color_string} @};
+	\node[rectangle, draw, color_border, inner sep=5pt] (b) at (11,4) {\color{color_string} @};
+	\node[rectangle, draw, color_border, inner sep=5pt] (c) at (9,0) {\color{color_string} @};
+	\node[rectangle, draw, color_border, inner sep=5pt] (d) at (5,0) {\color{color_string} @};
+	\node[rectangle, draw, color_border, inner sep=5pt] (e) at (3,4) {\color{color_string} @};
 	%~ for drawing a->a
 	\path (a) to [bend left=15] node (ab) {~} (b);
 	\path (a) to [bend left=10] node (ac) {~} (c);
