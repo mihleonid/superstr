@@ -1,4 +1,5 @@
 # Superstring project
+We are solving problems about getting string which has all other given strings as substrings (superstring). Local tasks are listed in tasks.md. Here are some terms and table of results.
 |Terms|Meanings|
 |-|-|
 |GC|gready conjecture|
