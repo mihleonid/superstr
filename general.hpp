@@ -85,9 +85,9 @@ void add_cyc(MSTR a){
 }
 int get(const MSTR& u,const MSTR& v){
 	auto idx=[](const MSTR& u,const MSTR& v,int i)->char{ //TODO optimize
-		if(i<v.sz()) return v[i];
-		if(i==v.sz()) return '#';
-		return u[i-v.size()-1];
+		if(i<v.sz()) ret  v[i];
+		if(i==v.sz()) ret  '#';
+		ret  u[i-v.size()-1];
 	};
 	VI pref(u.sz()+v.sz()+3);
 	if(v==u){
@@ -103,7 +103,7 @@ int get(const MSTR& u,const MSTR& v){
 				pref[i]=cur+1;
 			}
 		}
-		return pref[n-1];
+		ret pref[n-1];
 	}
 	int n=u.sz()+v.sz()+1;
 	pref[0]=0;
@@ -117,11 +117,11 @@ int get(const MSTR& u,const MSTR& v){
 			pref[i]=cur+1;
 		}
 	}
-	return pref[n-1];
+	ret pref[n-1];
 }
-int ovby(const MSTR& u,const MSTR& v,char c) {
+int ovby(const MSTR& u,const MSTR& v,char c){
     int ovl=get(u,v);
-    return count(v.begin(),v.begin()+ovl,c);
+    ret count(v.begin(),v.begin()+ovl,c);
 }
 /*
 int get(MSTR a,MSTR b){
@@ -203,7 +203,15 @@ void echo_v(const VI& v){
 		cout<<" + "<<for_print[i].y<<for_print[i].x;
 	}
 }
-void draw_graph(const vector<MSTR>& v, const string& tpl_path, const VPII& mord){
+void draw_matrix(const vector<MSTR>& br){
+	foris(i,br){
+		foris(j,br){
+			cout<<get(br[i],br[j])<<' ';
+		}
+		cout<<endl;
+	}
+}
+void draw_graph(const vector<MSTR>& v, const string& tpl_path, const VPII& mord, char split=0){
 	string tex=file_get_contents(tpl_path);
 	int k=0;
 	int n=v.sz();
@@ -244,7 +252,15 @@ void draw_graph(const vector<MSTR>& v, const string& tpl_path, const VPII& mord)
 				}
 				++k;
 			}
-			echo_v(get_v(v[i],v[j]));
+			if(split==0){
+				echo_v(get_v(v[i],v[j]));
+			}else{
+				if(split==1){
+					cout<<get(v[i],v[j]);
+				}else{
+					cout<<ovby(v[i],v[j],split);
+				}
+			}
 		}
 	}
 	while(1){
@@ -263,21 +279,21 @@ void draw_graph(const vector<MSTR>& v, const string& tpl_path, const VPII& mord)
 		++k;
 	}
 }
-void draw_graph(const vector<MSTR>& v, const VPII& mord){
+void draw_graph(const vector<MSTR>& v, const VPII& mord,char split=0){
 	VS paths(7);
 	paths[3]=TRIANGLE_TEX;
 	paths[4]=TETRAGON_TEX;
 	paths[5]=PENTAGON_TEX;
 	paths[6]=HEXAGON_TEX;
-	draw_graph(v,paths[v.sz()],mord);
+	draw_graph(v,paths[v.sz()],mord,split);
 }
-void draw_graph(const vector<MSTR>& v, const string& tpl_path){
+void draw_graph(const vector<MSTR>& v, const string& tpl_path,char split=0){
 	VPII mord;
-	draw_graph(v,tpl_path,mord);
+	draw_graph(v,tpl_path,mord,split);
 }
-void draw_graph(const vector<MSTR>& v){
+void draw_graph(const vector<MSTR>& v,char split=0){
 	VPII mord;
-	draw_graph(v,mord);
+	draw_graph(v,mord,split);
 }
 MSTR merge(MSTR a,const MSTR& b){
 	auto o=get(a,b);
@@ -285,4 +301,18 @@ MSTR merge(MSTR a,const MSTR& b){
 		a.pb(b[i]);
 	}
 	ret a;
+}
+MSTE merge(const vector<MSTR>& v,const VI& ord){
+	MSTR s=v[ord[0]];
+	fori1(i,ord.sz()){
+		s=merge(s,v[ord[i]]);
+	}
+	ret s;
+}
+MSTE merge(const vector<MSTR>& v){
+	MSTR s=v[0];
+	fori1(i,ord.sz()){
+		s=merge(s,v[i]);
+	}
+	ret s;
 }
