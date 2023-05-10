@@ -194,7 +194,9 @@ void echo_v(const VI& v){
 	}
 	cout<<v[0]<<'a';
 	fori1(i,v.sz()){
-		cout<<" + "<<v[i]<<char((char)i+'a');
+		if(v[i]){
+			cout<<" + "<<v[i]<<char((char)i+'a');
+		}
 	}
 }
 void draw_graph(const vector<MSTR>& v, const string& tpl_path, const VPII& mord){
