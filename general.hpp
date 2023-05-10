@@ -12,7 +12,7 @@ void print(const MSTR& s){
 		cout<<'-';
 	}
 	for(auto c:s){
-		cout<<char(c+'a');
+		cout<<char(c);
 	}
 }
 void print(const vector<MSTR>& v){
@@ -157,7 +157,7 @@ void add_ziza(const vector<MSTR>& v){
 MSTR str(const string& s){
 	MSTR a;
 	for(auto c:s){
-		a.pb(c-'a');
+		a.pb(c);
 	}
 	ret a;
 }
@@ -183,7 +183,7 @@ VI get_v(const MSTR& a,const MSTR& b){
 string to_string(const MSTR& s){
 	string ss;
 	for(auto x:s){
-		ss.pb(x+'a');
+		ss.pb(x);
 	}
 	ret ss;
 }
@@ -191,7 +191,7 @@ void echo_v(const VI& v){
 	vector<pair<char,int>> for_print;
 	foris(i,v){
 		if(v[i]){
-			for_print.pb({i+'a',v[i]});
+			for_print.pb({i,v[i]});
 		}
 	}
 	if(for_print.empty()){
