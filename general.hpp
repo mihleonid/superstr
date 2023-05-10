@@ -5,6 +5,9 @@
 #define TRIANGLE_TEX "tex/triangle_template.tex"
 #define MAX_COLOR 6
 #define LEN_LIMIT 30
+#ifndef PRINT_ZEROS
+#define WHITE_ZEROS
+#endif
 vector<MSTR> sqr;
 vector<pair<MSTR,MSTR>> reb;
 void print(const MSTR& s){
@@ -187,7 +190,7 @@ string to_string(const MSTR& s){
 	}
 	ret ss;
 }
-void echo_v(const VI& v){
+string to_string(const VI& v){
 	vector<pair<char,int>> for_print;
 	foris(i,v){
 		if(v[i]){
@@ -195,13 +198,24 @@ void echo_v(const VI& v){
 		}
 	}
 	if(for_print.empty()){
-		cout<<0;
-		ret;
+		ret "0";
 	}
-	cout<<for_print[0].y<<for_print[0].x;
+	string ans="";
+	if(for_print[0].y!=1){
+		ans=to_string(for_print[0].y);
+	}
+	ans.pb(for_print[0].x);
 	fori1(i,for_print.sz()){
-		cout<<" + "<<for_print[i].y<<for_print[i].x;
+		ans+=" + ";
+		if(for_print[i].y!=1){
+			ans+=to_string(for_print[i].y);
+		}
+		ans.pb(for_print[i].x);
 	}
+	ret ans;
+}
+void echo_v(const VI& v){
+	cout<<to_string(v);
 }
 void draw_matrix(const vector<MSTR>& br){
 	foris(i,br){
@@ -216,6 +230,20 @@ void draw_graph(const vector<MSTR>& v, const string& tpl_path, const VPII& mord,
 	int k=0;
 	int n=v.sz();
 	VI backtick(2*n*n,MAX_COLOR);
+	VVS rebs(n,VS(n));
+	fori(i,n){
+		fori(j,n){
+			if(split==0){
+				rebs[i][j]=to_string(get_v(v[i],v[j]));
+			}else{
+				if(split==1){
+					rebs[i][j]=to_string(get(v[i],v[j]));
+				}else{
+					rebs[i][j]=to_string(ovby(v[i],v[j],split));
+				}
+			}
+		}
+	}
 	VS strs(n);
 	fori(i,n){
 		if(v[i].sz()>LEN_LIMIT){
@@ -226,6 +254,17 @@ void draw_graph(const vector<MSTR>& v, const string& tpl_path, const VPII& mord,
 	}
 	int l=-1;
 	int m=-1;
+#ifdef WHITE_ZEROS
+	fori(i,n){
+		fori(j,n){
+			int idx=i*n+j;
+			if(rebs[i][j]=="0"){
+				backtick[idx*2]=-1;
+				backtick[idx*2+1]=-1;
+			}
+		}
+	}
+#endif
 	foris(i,mord){
 		int idx=mord[i].x*n+mord[i].y;
 		backtick[idx*2]=i;
@@ -252,15 +291,13 @@ void draw_graph(const vector<MSTR>& v, const string& tpl_path, const VPII& mord,
 				}
 				++k;
 			}
-			if(split==0){
-				echo_v(get_v(v[i],v[j]));
-			}else{
-				if(split==1){
-					cout<<get(v[i],v[j]);
-				}else{
-					cout<<ovby(v[i],v[j],split);
-				}
+#ifdef WHITE_ZEROS
+			if(rebs[i][j]!="0"){
+#endif
+				cout<<rebs[i][j];
+#ifdef WHITE_ZEROS
 			}
+#endif
 		}
 	}
 	while(1){
