@@ -302,16 +302,16 @@ MSTR merge(MSTR a,const MSTR& b){
 	}
 	ret a;
 }
-MSTE merge(const vector<MSTR>& v,const VI& ord){
+MSTR merge(const vector<MSTR>& v,const VI& ord){
 	MSTR s=v[ord[0]];
 	fori1(i,ord.sz()){
 		s=merge(s,v[ord[i]]);
 	}
 	ret s;
 }
-MSTE merge(const vector<MSTR>& v){
+MSTR merge(const vector<MSTR>& v){
 	MSTR s=v[0];
-	fori1(i,ord.sz()){
+	fori1(i,v.sz()){
 		s=merge(s,v[i]);
 	}
 	ret s;
