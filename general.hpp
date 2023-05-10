@@ -188,15 +188,19 @@ string to_string(const MSTR& s){
 	ret ss;
 }
 void echo_v(const VI& v){
-	if(v.empty()){
+	vector<pair<char,int>> for_print;
+	foris(i,v){
+		if(v[i]){
+			for_print.pb({i+'a',v[i]});
+		}
+	}
+	if(for_print.empty()){
 		cout<<0;
 		ret;
 	}
-	cout<<v[0]<<'a';
-	fori1(i,v.sz()){
-		if(v[i]){
-			cout<<" + "<<v[i]<<char((char)i+'a');
-		}
+	cout<<for_print[0].y<<for_print[0].x;
+	fori1(i,for_print.sz()){
+		cout<<" + "<<for_print[i].y<<for_print[i].x;
 	}
 }
 void draw_graph(const vector<MSTR>& v, const string& tpl_path, const VPII& mord){
