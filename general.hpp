@@ -81,6 +81,47 @@ void add_cyc(MSTR a){
 		reb.pb({c,b});
 	}while(b!=a);
 }
+int get(const MSTR& u,const MSTR& v){
+	auto idx=[](const MSTR& u,const MSTR& v,int i)->char{ //TODO optimize
+		if(i<v.sz()) return v[i];
+		if(i==v.sz()) return '#';
+		return u[i-v.size()-1];
+	};
+	VI pref(u.sz()+v.sz()+3);
+	if(v==u){
+		int n=u.sz();
+		pref[0]=0;
+		fori1(i,n){
+			pref[i]=0;
+			int cur=pref[i-1];
+			while(u[i]!=u[cur]&&cur>0){
+				cur=pref[cur-1];
+			}
+			if(u[i]==u[cur]){
+				pref[i]=cur+1;
+			}
+		}
+		return pref[n-1];
+	}
+	int n=u.sz()+v.sz()+1;
+	pref[0]=0;
+	fori1(i,n){
+		pref[i]=0;
+		int cur=pref[i-1];
+		while(idx(u,v,i)!=idx(u,v,cur)&&cur>0){
+			cur=pref[cur-1];
+		}
+		if(idx(u,v,i)==idx(u,v,cur)){
+			pref[i]=cur+1;
+		}
+	}
+	return pref[n-1];
+}
+int ovby(const MSTR& u,const MSTR& v,char c) {
+    int ovl=get(u,v);
+    return count(v.begin(),v.begin()+ovl,c);
+}
+/*
 int get(MSTR a,MSTR b){
 	int m=min(a.sz(),b.sz());
 	while(--m){
@@ -98,6 +139,7 @@ int get(MSTR a,MSTR b){
 	}
 	ret m;
 }
+*/
 void add_ziza(const vector<MSTR>& v){
 	for(auto x:v){
 		sqr.pb(x);
@@ -117,22 +159,13 @@ MSTR str(const string& s){
 	}
 	ret a;
 }
-MSTR ov(MSTR a,MSTR b){
-	int m=min(a.sz(),b.sz());
-	while(--m){
-		MSTR st=b;
-		MSTR en=a;
-		while(st.sz()!=m){
-			st.pp();
-		}
-		while(en.sz()!=m){
-			en.ppf();
-		}
-		if(st==en){
-			ret st;
-		}
+MSTR ov(const MSTR& a,const MSTR& b){
+	MSTR o;
+	int x=get(a,b);
+	fori(i,x){
+		o.pb(b[i]);
 	}
-	ret str("");
+	ret o;
 }
 VI get_v(const MSTR& a,const MSTR& b){
 	auto o=ov(a,b);
