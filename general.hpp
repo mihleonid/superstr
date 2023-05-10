@@ -218,14 +218,10 @@ void draw_graph(const vector<MSTR>& v, const string& tpl_path){
 		++k;
 	}
 }
-MSTR merge(const MSTR& a,MSTR b){
-	auto o=ov(a,b);
-	MSTR r;
-	fori(i,a.sz()-o.sz()){
-		r.pb(a[i]);
+MSTR merge(MSTR a,const MSTR& b){
+	auto o=get(a,b);
+	foriab(i,b.sz()-o,b.sz()){
+		a.pb(b[i]);
 	}
-	for(auto x:b){
-		r.pb(x);
-	}
-	ret r;
+	ret a;
 }
