@@ -12,7 +12,7 @@
 
 |Algorithm|GC >=|GC <=|UC <=|UC >=|PC >=|PC >=|PUC <=|PUC >=|
 |-|-|-|-|-|-|-|-|-|
-|GA|2 hard.txt|4 Blum|2.5 uni_breaker|?|(...in progress...>=1.5?)|4 Blum|2 pu.txt|?|
+|GA|2 hard.txt|4 Blum|2.5 uni_breaker|?|(1.5?) 4/3 pc_ga.txt|4 Blum|2 pu.txt|?|
 |GGA|2.5 gga_and_punk.txt|?|2.5 uni_breaker|?|(...in progress...>=1.5?)|?|2 pu.txt|?|
 |PUNK|2.5 gga_and_punk.txt|?|2.5 uni_breaker|?|2 prime_punk.txt|?|2 pu.txt|?|
 
