@@ -3,6 +3,8 @@
 #define PENTAGON_TEX "tex/pentagon_template.tex"
 #define TETRAGON_TEX "tex/tetragon_template.tex"
 #define TRIANGLE_TEX "tex/triangle_template.tex"
+#define MAX_COLOR 6
+#define LEN_LIMIT 30
 vector<MSTR> sqr;
 vector<pair<MSTR,MSTR>> reb;
 void print(const MSTR& s){
@@ -178,6 +180,13 @@ VI get_v(const MSTR& a,const MSTR& b){
 	}
 	ret v;
 }
+string to_string(const MSTR& s){
+	string ss;
+	for(auto x:s){
+		ss.pb(x+'a');
+	}
+	ret ss;
+}
 void echo_v(const VI& v){
 	if(v.empty()){
 		cout<<0;
@@ -188,9 +197,29 @@ void echo_v(const VI& v){
 		cout<<" + "<<v[i]<<char((char)i+'a');
 	}
 }
-void draw_graph(const vector<MSTR>& v, const string& tpl_path){
+void draw_graph(const vector<MSTR>& v, const string& tpl_path, const VPII& mord){
 	string tex=file_get_contents(tpl_path);
 	int k=0;
+	int n=v.sz();
+	VI backtick(2*n*n,MAX_COLOR);
+	VS strs(n);
+	fori(i,n){
+		if(v[i].sz()>LEN_LIMIT){
+			strs[i]="str"+to_string(i);
+		}else{
+			strs[i]=to_string(v[i]);
+		}
+	}
+	int l=-1;
+	int m=-1;
+	/*
+	fori(i,n){
+		fori(j,n){
+			backtick[++l]=
+		}
+	}
+	l=-1;
+	*/
 	foris(i,v){
 		foris(j,v){
 			if(i==j){
@@ -204,7 +233,15 @@ void draw_graph(const vector<MSTR>& v, const string& tpl_path){
 					++k;
 					break;
 				}
-				cout<<tex[k];
+				if(tex[k]=='`'){
+					cout<<"color"<<backtick[++l];
+				}else{
+					if(tex[k]=='@'){
+						cout<<strs[++m];
+					}else{
+						cout<<tex[k];
+					}
+				}
 				++k;
 			}
 			echo_v(get_v(v[i],v[j]));
@@ -214,9 +251,21 @@ void draw_graph(const vector<MSTR>& v, const string& tpl_path){
 		if(k==tex.sz()){
 			ret;
 		}
-		cout<<tex[k];
+		if(tex[k]=='`'){
+			cout<<"color"<<backtick[++l];
+		}else{
+			if(tex[k]=='@'){
+				cout<<strs[++m];
+			}else{
+				cout<<tex[k];
+			}
+		}
 		++k;
 	}
+}
+void draw_graph(const vector<MSTR>& v, const string& tpl_path){
+	VPII mord;
+	draw_graph(v,tpl_path,mord);
 }
 MSTR merge(MSTR a,const MSTR& b){
 	auto o=get(a,b);

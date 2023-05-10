@@ -35,11 +35,11 @@
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[>=latex, xscale=\tkizx, yscale=\tkizy]
-	\node[rectangle, draw, darkgreen, inner sep=5pt] (a) at (7,7) {\color{red} stra};
-	\node[rectangle, draw, darkgreen, inner sep=5pt] (b) at (11,4) {\color{red} strb};
-	\node[rectangle, draw, darkgreen, inner sep=5pt] (c) at (9,0) {\color{red} strc};
-	\node[rectangle, draw, darkgreen, inner sep=5pt] (d) at (5,0) {\color{red} strd};
-	\node[rectangle, draw, darkgreen, inner sep=5pt] (e) at (3,4) {\color{red} stre};
+	\node[rectangle, draw, darkgreen, inner sep=5pt] (a) at (7,7) {\color{red} @};
+	\node[rectangle, draw, darkgreen, inner sep=5pt] (b) at (11,4) {\color{red} @};
+	\node[rectangle, draw, darkgreen, inner sep=5pt] (c) at (9,0) {\color{red} @};
+	\node[rectangle, draw, darkgreen, inner sep=5pt] (d) at (5,0) {\color{red} @};
+	\node[rectangle, draw, darkgreen, inner sep=5pt] (e) at (3,4) {\color{red} @};
 	\path (a) to [bend left=15] node (ab) {~} (b);
 	\path (a) to [bend left=10] node (ac) {~} (c);
 	\path (a) to [bend left=10] node (ad) {~} (d);
@@ -60,6 +60,7 @@
 	\path (e) to [bend left=10] node (eb) {~} (b);
 	\path (e) to [bend left=10] node (ec) {~} (c);
 	\path (e) to [bend left=15] node (ed) {~} (d);
+	%`` for drawing a->a in future
 	\draw[`, ->] (a) -- (ab);
 	\draw[`, ->] (ab) -- (b);
 	\draw[`, ->] (a) -- (ac);
@@ -70,6 +71,7 @@
 	\draw[`, ->] (ae) -- (e);
 	\draw[`, ->] (b) -- (ba);
 	\draw[`, ->] (ba) -- (a);
+	%`` for drawing b->b in future
 	\draw[`, ->] (b) -- (bc);
 	\draw[`, ->] (bc) -- (c);
 	\draw[`, ->] (b) -- (bd);
