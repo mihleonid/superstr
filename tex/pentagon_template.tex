@@ -40,26 +40,32 @@
 	\node[rectangle, draw, darkgreen, inner sep=5pt] (c) at (9,0) {\color{red} @};
 	\node[rectangle, draw, darkgreen, inner sep=5pt] (d) at (5,0) {\color{red} @};
 	\node[rectangle, draw, darkgreen, inner sep=5pt] (e) at (3,4) {\color{red} @};
+	%~ for drawing a->a
 	\path (a) to [bend left=15] node (ab) {~} (b);
 	\path (a) to [bend left=10] node (ac) {~} (c);
 	\path (a) to [bend left=10] node (ad) {~} (d);
 	\path (a) to [bend left=15] node (ae) {~} (e);
 	\path (b) to [bend left=15] node (ba) {~} (a);
+	%~ for drawing b->b
 	\path (b) to [bend left=15] node (bc) {~} (c);
 	\path (b) to [bend left=10] node (bd) {~} (d);
 	\path (b) to [bend left=10] node (be) {~} (e);
 	\path (c) to [bend left=10] node (ca) {~} (a);
 	\path (c) to [bend left=15] node (cb) {~} (b);
+	%~ for drawing c->c
 	\path (c) to [bend left=15] node (cd) {~} (d);
 	\path (c) to [bend left=10] node (ce) {~} (e);
 	\path (d) to [bend left=10] node (da) {~} (a);
 	\path (d) to [bend left=10] node (db) {~} (b);
 	\path (d) to [bend left=15] node (dc) {~} (c);
+	%~ for drawing d->d
 	\path (d) to [bend left=15] node (de) {~} (e);
 	\path (e) to [bend left=15] node (ea) {~} (a);
 	\path (e) to [bend left=10] node (eb) {~} (b);
 	\path (e) to [bend left=10] node (ec) {~} (c);
 	\path (e) to [bend left=15] node (ed) {~} (d);
+	%~ for drawing e->e
+
 	%`` for drawing a->a in future
 	\draw[`, ->] (a) -- (ab);
 	\draw[`, ->] (ab) -- (b);
@@ -82,6 +88,7 @@
 	\draw[`, ->] (ca) -- (a);
 	\draw[`, ->] (c) -- (cb);
 	\draw[`, ->] (cb) -- (b);
+	%`` for drawing c->c in future
 	\draw[`, ->] (c) -- (cd);
 	\draw[`, ->] (cd) -- (d);
 	\draw[`, ->] (c) -- (ce);
@@ -92,6 +99,7 @@
 	\draw[`, ->] (db) -- (b);
 	\draw[`, ->] (d) -- (dc);
 	\draw[`, ->] (dc) -- (c);
+	%`` for drawing d->d in future
 	\draw[`, ->] (d) -- (de);
 	\draw[`, ->] (de) -- (e);
 	\draw[`, ->] (e) -- (ea);
@@ -102,6 +110,7 @@
 	\draw[`, ->] (ec) -- (c);
 	\draw[`, ->] (e) -- (ed);
 	\draw[`, ->] (ed) -- (d);
+	%`` for drawing e->e in future
 \end{tikzpicture}
 % \caption{\small Подпись к картинке}
 \label{fig:graph}

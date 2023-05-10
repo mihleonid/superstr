@@ -222,9 +222,6 @@ void draw_graph(const vector<MSTR>& v, const string& tpl_path, const VPII& mord)
 	*/
 	foris(i,v){
 		foris(j,v){
-			if(i==j){
-				cont;
-			}
 			while(1){
 				if(k==tex.sz()){
 					ret;
@@ -263,9 +260,21 @@ void draw_graph(const vector<MSTR>& v, const string& tpl_path, const VPII& mord)
 		++k;
 	}
 }
+void draw_graph(const vector<MSTR>& v, const VPII& mord){
+	VS paths(7);
+	paths[3]=TRIANGLE_TEX;
+	paths[4]=TETRAGON_TEX;
+	paths[5]=PENTAGON_TEX;
+	paths[6]=HEXAGON_TEX;
+	draw_graph(v,paths[v.sz()],mord);
+}
 void draw_graph(const vector<MSTR>& v, const string& tpl_path){
 	VPII mord;
 	draw_graph(v,tpl_path,mord);
+}
+void draw_graph(const vector<MSTR>& v){
+	VPII mord;
+	draw_graph(v,mord);
 }
 MSTR merge(MSTR a,const MSTR& b){
 	auto o=get(a,b);

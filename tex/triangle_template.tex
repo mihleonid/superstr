@@ -34,27 +34,34 @@
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[>=latex, xscale=\tkizx, yscale=\tkizy]
-	\node[rectangle, draw, color3, inner sep=5pt] (a) at (8,7) {\color{color0} stra};
-	\node[rectangle, draw, color3, inner sep=5pt] (b) at (12,1) {\color{color0} strb};
-	\node[rectangle, draw, color3, inner sep=5pt] (c) at (4,1) {\color{color0} strc};
+	\node[rectangle, draw, color3, inner sep=5pt] (a) at (8,7) {\color{red} @};
+	\node[rectangle, draw, color3, inner sep=5pt] (b) at (12,1) {\color{red} @};
+	\node[rectangle, draw, color3, inner sep=5pt] (c) at (4,1) {\color{red} @};
+	%~ for drawing a->a
 	\path (a) to [bend left=15] node (ab) {~} (b);
 	\path (a) to [bend left=15] node (ac) {~} (c);
 	\path (b) to [bend left=15] node (ba) {~} (a);
+	%~ for drawing b->b
 	\path (b) to [bend left=15] node (bc) {~} (c);
 	\path (c) to [bend left=15] node (ca) {~} (a);
 	\path (c) to [bend left=15] node (cb) {~} (b);
+	%~ for drawing c->c
+
+	%`` for drawing a->a in future
 	\draw[`, ->] (a) -- (ab);
 	\draw[`, ->] (ab) -- (b);
 	\draw[`, ->] (a) -- (ac);
 	\draw[`, ->] (ac) -- (c);
 	\draw[`, ->] (b) -- (ba);
 	\draw[`, ->] (ba) -- (a);
+	%`` for drawing b->b in future
 	\draw[`, ->] (b) -- (bc);
 	\draw[`, ->] (bc) -- (c);
 	\draw[`, ->] (c) -- (ca);
 	\draw[`, ->] (ca) -- (a);
 	\draw[`, ->] (c) -- (cb);
 	\draw[`, ->] (cb) -- (b);
+	%`` for drawing c->c in future
 \end{tikzpicture}
 % \caption{\small Подпись к картинке}
 \label{fig:graph}
