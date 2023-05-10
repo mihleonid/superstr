@@ -12,6 +12,6 @@
 
 |Algorithm|GC >=|GC <=|UC <=|UC >=|PC >=|PC >=|PUC <=|PUC >=|
 |-|-|-|-|-|-|-|-|-|
-|GA|2 hard.txt|4 Blum|2.5 uni_breaker|?|3/2 prime.txt|4|2|?|
-|GGA|2.5 gga_and_punk.txt|?|2.5 uni_breaker|?|3/2 prime.txt|?|2|?|
-|PUNK|2.5 gga_and_punk.txt|?|2.5 uni_breaker|?|3/2 prime.txt|?|2|?|
+|GA|2 hard.txt|4 Blum|2.5 uni_breaker|?|(...in progress...) prime.txt|4 Blum|2 pu.txt|?|
+|GGA|2.5 gga_and_punk.txt|?|2.5 uni_breaker|?|(...in progress...) prime.txt|?|2 pu.txt|?|
+|PUNK|2.5 gga_and_punk.txt|?|2.5 uni_breaker|?|(...in progress...) prime.txt|?|2 pu.txt|?|
