@@ -1,5 +1,6 @@
 #define MSTR deque<char>
 #define HEXAGON_TEX "tex/hexagon_template.tex"
+#define ROTATED_HEXAGON_TEX "tex/hexagon_template_rotated.tex"
 #define PENTAGON_TEX "tex/pentagon_template.tex"
 #define TETRAGON_TEX "tex/tetragon_template.tex"
 #define TRIANGLE_TEX "tex/triangle_template.tex"
@@ -7,6 +8,9 @@
 #define LEN_LIMIT 30
 #ifndef PRINT_ZEROS
 #define WHITE_ZEROS
+#endif
+#ifndef NO_ROTATED
+//#define ROTATED
 #endif
 vector<MSTR> sqr;
 vector<pair<MSTR,MSTR>> reb;
@@ -322,6 +326,9 @@ void draw_graph(const vector<MSTR>& v, const VPII& mord,char split=0){
 	paths[4]=TETRAGON_TEX;
 	paths[5]=PENTAGON_TEX;
 	paths[6]=HEXAGON_TEX;
+#ifdef ROTATED
+	paths[6]=ROTATED_HEXAGON_TEX;
+#endif
 	draw_graph(v,paths[v.sz()],mord,split);
 }
 void draw_graph(const vector<MSTR>& v, const string& tpl_path,char split=0){
