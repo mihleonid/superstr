@@ -1,4 +1,6 @@
 #define MSTR deque<char>
+#define OCTAGON_TEX "tex/octagon_template.tex"
+#define ROTATED_OCTAGON_TEX "tex/octagon_template_rotated.tex"
 #define HEXAGON_TEX "tex/hexagon_template.tex"
 #define ROTATED_HEXAGON_TEX "tex/hexagon_template_rotated.tex"
 #define PENTAGON_TEX "tex/pentagon_template.tex"
@@ -326,8 +328,10 @@ void draw_graph(const vector<MSTR>& v, const VPII& mord,char split=0){
 	paths[4]=TETRAGON_TEX;
 	paths[5]=PENTAGON_TEX;
 	paths[6]=HEXAGON_TEX;
+	paths[8]=OCTAGON_TEX;
 #ifdef ROTATED
 	paths[6]=ROTATED_HEXAGON_TEX;
+	paths[8]=ROTATED_OCTAGON_TEX;
 #endif
 	draw_graph(v,paths[v.sz()],mord,split);
 }
