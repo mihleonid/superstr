@@ -1,0 +1,96 @@
+\documentclass[10pt,a4paper]{article}    % А4 бумага, шрифт 10
+\usepackage[top=2cm, left=1cm, right=1cm, bottom=2cm]{geometry} % отступыы
+\usepackage{cmap}                        % поиск в PDF
+\usepackage[T2A]{fontenc}                % кодировка
+\usepackage[utf8]{inputenc}              % кодировка исходного текста
+\usepackage[english,russian]{babel}      % локализация и переносы
+\usepackage[unicode, pdftex]{hyperref}   % настройки ссылок и PDF
+\usepackage{pdflscape}
+\usepackage{tikz}
+\usepackage[outputdir=build]{minted}
+\usepackage{titlesec}
+
+\usetikzlibrary{shapes,arrows}
+\title{Тетрагон}
+\author{Tetragon Drawer}
+\date{\today}
+
+\def\tkizx{2.5}
+\def\tkizy{2.5}
+\definecolor{color-1}{rgb}{1,1,1}
+\definecolor{color0}{rgb}{1,0,0}
+\definecolor{color1}{rgb}{1,0.5,0}
+\definecolor{color2}{rgb}{1,1,0}
+\definecolor{color3}{rgb}{0,0.6,0}
+\definecolor{color4}{rgb}{0,0,0}
+\definecolor{color5}{rgb}{1,0,1}
+\definecolor{color6}{rgb}{0,0,1}
+\definecolor{color_string}{rgb}{1,0,0}
+\definecolor{color_border}{rgb}{0,0.6,0}
+
+
+\begin{document}
+\begin{landscape}
+\thispagestyle{empty}
+
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[>=latex, xscale=\tkizx, yscale=\tkizy]
+	\node[rectangle, draw, color_border, inner sep=5pt] (a) at (8,7) {\color{color_string} @};
+	\node[rectangle, draw, color_border, inner sep=5pt] (b) at (11,4) {\color{color_string} @};
+	\node[rectangle, draw, color_border, inner sep=5pt] (c) at (8,1) {\color{color_string} @};
+	\node[rectangle, draw, color_border, inner sep=5pt] (d) at (5,4) {\color{color_string} @};
+	%~ for drawing a->a
+	\path (a) to [bend left=15] node (ab) {~} (b);
+	\path (a) to [bend left=15] node (ac) {~} (c);
+	\path (a) to [bend left=15] node (ad) {~} (d);
+	\path (b) to [bend left=15] node (ba) {~} (a);
+	%~ for drawing b->b
+	\path (b) to [bend left=15] node (bc) {~} (c);
+	\path (b) to [bend left=15] node (bd) {~} (d);
+	\path (c) to [bend left=15] node (ca) {~} (a);
+	\path (c) to [bend left=15] node (cb) {~} (b);
+	%~ for drawing c->c
+	\path (c) to [bend left=15] node (cd) {~} (d);
+	\path (d) to [bend left=15] node (da) {~} (a);
+	\path (d) to [bend left=15] node (db) {~} (b);
+	\path (d) to [bend left=15] node (dc) {~} (c);
+	%~ for drawing d->d
+
+	%`` for drawing a->a in future
+	\draw[`, ->] (a) -- (ab);
+	\draw[`, ->] (ab) -- (b);
+	\draw[`, ->] (a) -- (ac);
+	\draw[`, ->] (ac) -- (c);
+	\draw[`, ->] (a) -- (ad);
+	\draw[`, ->] (ad) -- (d);
+	\draw[`, ->] (b) -- (ba);
+	\draw[`, ->] (ba) -- (a);
+	%`` for drawing b->b in future
+	\draw[`, ->] (b) -- (bc);
+	\draw[`, ->] (bc) -- (c);
+	\draw[`, ->] (b) -- (bd);
+	\draw[`, ->] (bd) -- (d);
+	\draw[`, ->] (c) -- (ca);
+	\draw[`, ->] (ca) -- (a);
+	\draw[`, ->] (c) -- (cb);
+	\draw[`, ->] (cb) -- (b);
+	%`` for drawing c->c in future
+	\draw[`, ->] (c) -- (cd);
+	\draw[`, ->] (cd) -- (d);
+	\draw[`, ->] (d) -- (da);
+	\draw[`, ->] (da) -- (a);
+	\draw[`, ->] (d) -- (db);
+	\draw[`, ->] (db) -- (b);
+	\draw[`, ->] (d) -- (dc);
+	\draw[`, ->] (dc) -- (c);
+	%`` for drawing d->d in future
+\end{tikzpicture}
+% \caption{\small Подпись к картинке}
+\label{fig:graph}
+\end{figure}
+
+
+\end{landscape}
+\end{document}

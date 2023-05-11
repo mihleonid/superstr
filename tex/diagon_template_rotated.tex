@@ -1,0 +1,59 @@
+\documentclass[10pt,a4paper]{article}    % А4 бумага, шрифт 10
+\usepackage[top=2cm, left=1cm, right=1cm, bottom=2cm]{geometry} % отступыы
+\usepackage{cmap}                        % поиск в PDF
+\usepackage[T2A]{fontenc}                % кодировка
+\usepackage[utf8]{inputenc}              % кодировка исходного текста
+\usepackage[english,russian]{babel}      % локализация и переносы
+\usepackage[unicode, pdftex]{hyperref}   % настройки ссылок и PDF
+\usepackage{pdflscape}
+\usepackage{tikz}
+\usepackage[outputdir=build]{minted}
+\usepackage{titlesec}
+
+\usetikzlibrary{shapes,arrows}
+\title{Треугольник}
+\author{Triangle Drawer}
+\date{\today}
+
+\def\tkizx{2.4}
+\def\tkizy{2.7}
+\definecolor{color-1}{rgb}{1,1,1}
+\definecolor{color0}{rgb}{1,0,0}
+\definecolor{color1}{rgb}{1,0.5,0}
+\definecolor{color2}{rgb}{1,1,0}
+\definecolor{color3}{rgb}{0,0.6,0}
+\definecolor{color4}{rgb}{0,0,0}
+\definecolor{color5}{rgb}{1,0,1}
+\definecolor{color6}{rgb}{0,0,1}
+\definecolor{color_string}{rgb}{1,0,0}
+\definecolor{color_border}{rgb}{0,0.6,0}
+
+
+\begin{document}
+\begin{landscape}
+\thispagestyle{empty}
+
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[>=latex, xscale=\tkizx, yscale=\tkizy]
+	\node[rectangle, draw, color_border, inner sep=5pt] (a) at (10,6) {\color{color_string} @};
+	\node[rectangle, draw, color_border, inner sep=5pt] (b) at (10,0) {\color{color_string} @};
+	%~ for drawing a->a
+	\path (a) to [bend left=15] node (ab) {~} (b);
+	\path (b) to [bend left=15] node (ba) {~} (a);
+	%~ for drawing b->b
+	%`` for drawing a->a in future
+	\draw[`, ->] (a) -- (ab);
+	\draw[`, ->] (ab) -- (b);
+	\draw[`, ->] (b) -- (ba);
+	\draw[`, ->] (ba) -- (a);
+	%`` for drawing b->b in future
+\end{tikzpicture}
+% \caption{\small Подпись к картинке}
+\label{fig:graph}
+\end{figure}
+
+
+\end{landscape}
+\end{document}
