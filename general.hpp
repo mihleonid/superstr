@@ -323,7 +323,7 @@ void draw_graph(const vector<MSTR>& v, const string& tpl_path, const VPII& mord,
 	}
 }
 void draw_graph(const vector<MSTR>& v, const VPII& mord,char split=0){
-	VS paths(7);
+	VS paths(9);
 	paths[3]=TRIANGLE_TEX;
 	paths[4]=TETRAGON_TEX;
 	paths[5]=PENTAGON_TEX;
