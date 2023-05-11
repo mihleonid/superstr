@@ -1,0 +1,240 @@
+\documentclass[10pt,a3paper]{article}    % А3 бумага, шрифт 10
+\usepackage[top=2cm, left=1cm, right=1cm, bottom=2cm]{geometry} % отступыы
+\usepackage{cmap}                        % поиск в PDF
+\usepackage[T2A]{fontenc}                % кодировка
+\usepackage[utf8]{inputenc}              % кодировка исходного текста
+\usepackage[english,russian]{babel}      % локализация и переносы
+\usepackage[unicode, pdftex]{hyperref}   % настройки ссылок и PDF
+\usepackage{pdflscape}
+\usepackage{tikz}
+\usepackage[outputdir=build]{minted}
+\usepackage{titlesec}
+
+\usetikzlibrary{shapes,arrows}
+\title{Гексагон}
+\author{Hexagon Drawer}
+\date{\today}
+
+\def\tkizx{3.5}
+\def\tkizy{3.5}
+\definecolor{color-1}{rgb}{1,1,1}
+\definecolor{color0}{rgb}{1,0,0}
+\definecolor{color1}{rgb}{1,0.5,0}
+\definecolor{color2}{rgb}{1,1,0}
+\definecolor{color3}{rgb}{0,0.6,0}
+\definecolor{color4}{rgb}{0,0,0}
+\definecolor{color5}{rgb}{1,0,1}
+\definecolor{color6}{rgb}{0,0,1}
+\definecolor{color_string}{rgb}{1,0,0}
+\definecolor{color_border}{rgb}{0,0.6,0}
+
+
+\begin{document}
+\begin{landscape}
+\thispagestyle{empty}
+
+
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[>=latex, xscale=\tkizx, yscale=\tkizy]
+	\node[rectangle, draw, color_border, inner sep=5pt] (a) at (7,7) {\color{color_string} @};
+	\node[rectangle, draw, color_border, inner sep=5pt] (b) at (9.5,5.5) {\color{color_string} @};
+	\node[rectangle, draw, color_border, inner sep=5pt] (c) at (10.5,3.5) {\color{color_string} @};
+	\node[rectangle, draw, color_border, inner sep=5pt] (d) at (9.5,1.5) {\color{color_string} @};
+	\node[rectangle, draw, color_border, inner sep=5pt] (e) at (7,0) {\color{color_string} @};
+	\node[rectangle, draw, color_border, inner sep=5pt] (f) at (4.5,1.5) {\color{color_string} @};
+	\node[rectangle, draw, color_border, inner sep=5pt] (g) at (3.5,3.5) {\color{color_string} @};
+	\node[rectangle, draw, color_border, inner sep=5pt] (h) at (4.5,5.5) {\color{color_string} @};	
+	%~ for drawing a->a
+	\path (a) to [bend left=15] node (ab) {~} (b);
+	\path (a) to [bend left=15] node (ac) {~} (c);
+	\path (a) to [bend left=10] node (ad) {~} (d);
+	\path (a) to [bend left=15] node (ae) {~} (e);
+	\path (a) to [bend left=10] node (af) {~} (f);
+	\path (a) to [bend left=15] node (ag) {~} (g);
+	\path (a) to [bend left=15] node (ah) {~} (h);
+	\path (b) to [bend left=15] node (ba) {~} (a);
+	%~ for drawing b->b
+	\path (b) to [bend left=15] node (bc) {~} (c);
+	\path (b) to [bend left=15] node (bd) {~} (d);
+	\path (b) to [bend left=10] node (be) {~} (e);
+	\path (b) to [bend left=15] node (bf) {~} (f);
+ 	\path (b) to [bend left=10] node (bg) {~} (g);
+	\path (b) to [bend left=15] node (bh) {~} (h);
+	\path (c) to [bend left=15] node (ca) {~} (a);
+	\path (c) to [bend left=15] node (cb) {~} (b);
+	%~ for drawing c->c
+	\path (c) to [bend left=15] node (cd) {~} (d);
+	\path (c) to [bend left=15] node (ce) {~} (e);
+	\path (c) to [bend left=10] node (cf) {~} (f);
+ 	\path (c) to [bend left=15] node (cg) {~} (g);
+	\path (c) to [bend left=10] node (ch) {~} (h);
+	\path (d) to [bend left=10] node (da) {~} (a);
+	\path (d) to [bend left=15] node (db) {~} (b);
+	\path (d) to [bend left=15] node (dc) {~} (c);
+	%~ for drawing d->d
+	\path (d) to [bend left=15] node (de) {~} (e);
+	\path (d) to [bend left=15] node (df) {~} (f);
+ 	\path (d) to [bend left=10] node (dg) {~} (g);
+	\path (d) to [bend left=15] node (dh) {~} (h);
+	\path (e) to [bend left=15] node (ea) {~} (a);
+	\path (e) to [bend left=10] node (eb) {~} (b);
+	\path (e) to [bend left=15] node (ec) {~} (c);
+	\path (e) to [bend left=15] node (ed) {~} (d);
+	%~ for drawing e->e
+	\path (e) to [bend left=15] node (ef) {~} (f);
+ 	\path (e) to [bend left=15] node (eg) {~} (g);
+	\path (e) to [bend left=10] node (eh) {~} (h);
+	\path (f) to [bend left=10] node (fa) {~} (a);
+	\path (f) to [bend left=15] node (fb) {~} (b);
+	\path (f) to [bend left=10] node (fc) {~} (c);
+	\path (f) to [bend left=15] node (fd) {~} (d);
+	\path (f) to [bend left=15] node (fe) {~} (e);
+	%~ for drawing f->f
+        \path (f) to [bend left=15] node (fg) {~} (g);
+	\path (f) to [bend left=15] node (fh) {~} (h);
+ 	\path (g) to [bend left=15] node (ga) {~} (a);
+	\path (g) to [bend left=10] node (gb) {~} (b);
+	\path (g) to [bend left=15] node (gc) {~} (c);
+	\path (g) to [bend left=10] node (gd) {~} (d);
+	\path (g) to [bend left=15] node (ge) {~} (e);
+        \path (g) to [bend left=15] node (gf) {~} (f);
+        %~ for drawing g->g
+	\path (g) to [bend left=15] node (gh) {~} (h);
+ 	\path (h) to [bend left=15] node (ha) {~} (a);
+	\path (h) to [bend left=15] node (hb) {~} (b);
+	\path (h) to [bend left=10] node (hc) {~} (c);
+	\path (h) to [bend left=15] node (hd) {~} (d);
+	\path (h) to [bend left=10] node (he) {~} (e);
+        \path (h) to [bend left=15] node (hf) {~} (f);
+        \path (h) to [bend left=15] node (hg) {~} (g);
+        %~ for drawing h->h
+	%`` for drawing a->a in future
+	\draw[`, ->] (a) -- (ab);
+	\draw[`, ->] (ab) -- (b);
+	\draw[`, ->] (a) -- (ac);
+	\draw[`, ->] (ac) -- (c);
+	\draw[`, ->] (a) -- (ad);
+	\draw[`, ->] (ad) -- (d);
+	\draw[`, ->] (a) -- (ae);
+	\draw[`, ->] (ae) -- (e);
+	\draw[`, ->] (a) -- (af);
+	\draw[`, ->] (af) -- (f);
+ 	\draw[`, ->] (a) -- (ag);
+	\draw[`, ->] (ag) -- (g);
+	\draw[`, ->] (a) -- (ah);
+	\draw[`, ->] (ah) -- (h);
+	\draw[`, ->] (b) -- (ba);
+	\draw[`, ->] (ba) -- (a);
+	%`` for drawing b->b in future
+	\draw[`, ->] (b) -- (bc);
+	\draw[`, ->] (bc) -- (c);
+	\draw[`, ->] (b) -- (bd);
+	\draw[`, ->] (bd) -- (d);
+	\draw[`, ->] (b) -- (be);
+	\draw[`, ->] (be) -- (e);
+	\draw[`, ->] (b) -- (bf);
+	\draw[`, ->] (bf) -- (f);
+ 	\draw[`, ->] (b) -- (bg);
+	\draw[`, ->] (bg) -- (g);
+	\draw[`, ->] (b) -- (bh);
+	\draw[`, ->] (bh) -- (h);
+	\draw[`, ->] (c) -- (ca);
+	\draw[`, ->] (ca) -- (a);
+	\draw[`, ->] (c) -- (cb);
+	\draw[`, ->] (cb) -- (b);
+	%`` for drawing c->c in future
+	\draw[`, ->] (c) -- (cd);
+	\draw[`, ->] (cd) -- (d);
+	\draw[`, ->] (c) -- (ce);
+	\draw[`, ->] (ce) -- (e);
+	\draw[`, ->] (c) -- (cf);
+	\draw[`, ->] (cf) -- (f);
+ 	\draw[`, ->] (c) -- (cg);
+	\draw[`, ->] (cg) -- (g);
+	\draw[`, ->] (c) -- (ch);
+	\draw[`, ->] (ch) -- (h);
+	\draw[`, ->] (d) -- (da);
+	\draw[`, ->] (da) -- (a);
+	\draw[`, ->] (d) -- (db);
+	\draw[`, ->] (db) -- (b);
+	\draw[`, ->] (d) -- (dc);
+	\draw[`, ->] (dc) -- (c);
+	%`` for drawing d->d in future
+	\draw[`, ->] (d) -- (de);
+	\draw[`, ->] (de) -- (e);
+	\draw[`, ->] (d) -- (df);
+	\draw[`, ->] (df) -- (f);
+  	\draw[`, ->] (d) -- (dg);
+	\draw[`, ->] (dg) -- (g);
+	\draw[`, ->] (d) -- (dh);
+	\draw[`, ->] (dh) -- (h);
+	\draw[`, ->] (e) -- (ea);
+	\draw[`, ->] (ea) -- (a);
+	\draw[`, ->] (e) -- (eb);
+	\draw[`, ->] (eb) -- (b);
+	\draw[`, ->] (e) -- (ec);
+	\draw[`, ->] (ec) -- (c);
+	\draw[`, ->] (e) -- (ed);
+	\draw[`, ->] (ed) -- (d);
+	%`` for drawing e->e in future
+	\draw[`, ->] (e) -- (ef);
+	\draw[`, ->] (ef) -- (f);
+  	\draw[`, ->] (e) -- (eg);
+	\draw[`, ->] (eg) -- (g);
+	\draw[`, ->] (e) -- (eh);
+	\draw[`, ->] (eh) -- (h);
+	\draw[`, ->] (f) -- (fa);
+	\draw[`, ->] (fa) -- (a);
+	\draw[`, ->] (f) -- (fb);
+	\draw[`, ->] (fb) -- (b);
+	\draw[`, ->] (f) -- (fc);
+	\draw[`, ->] (fc) -- (c);
+	\draw[`, ->] (f) -- (fd);
+	\draw[`, ->] (fd) -- (d);
+	\draw[`, ->] (f) -- (fe);
+	\draw[`, ->] (fe) -- (e);
+	%`` for drawing f->f in future
+  	\draw[`, ->] (f) -- (fg);
+	\draw[`, ->] (fg) -- (g);
+	\draw[`, ->] (f) -- (fh);
+	\draw[`, ->] (fh) -- (h);
+	\draw[`, ->] (g) -- (ga);
+	\draw[`, ->] (ga) -- (a);
+	\draw[`, ->] (g) -- (gb);
+	\draw[`, ->] (gb) -- (b);
+	\draw[`, ->] (g) -- (gc);
+	\draw[`, ->] (gc) -- (c);
+	\draw[`, ->] (g) -- (gd);
+	\draw[`, ->] (gd) -- (d);
+	\draw[`, ->] (g) -- (ge);
+	\draw[`, ->] (ge) -- (e);
+  	\draw[`, ->] (g) -- (gf);
+	\draw[`, ->] (gf) -- (f);
+ 	%`` for drawing g->g in future
+	\draw[`, ->] (g) -- (gh);
+	\draw[`, ->] (gh) -- (h);
+ 	\draw[`, ->] (h) -- (ha);
+	\draw[`, ->] (ha) -- (a);
+	\draw[`, ->] (h) -- (hb);
+	\draw[`, ->] (hb) -- (b);
+	\draw[`, ->] (h) -- (hc);
+	\draw[`, ->] (hc) -- (c);
+	\draw[`, ->] (h) -- (hd);
+	\draw[`, ->] (hd) -- (d);
+	\draw[`, ->] (h) -- (he);
+	\draw[`, ->] (he) -- (e);
+  	\draw[`, ->] (h) -- (hf);
+	\draw[`, ->] (hf) -- (f);
+	\draw[`, ->] (h) -- (hg);
+	\draw[`, ->] (hg) -- (g);
+ 	%`` for drawing h->h in future
+\end{tikzpicture}
+% \caption{\small Подпись к картинке}
+\label{fig:graph}
+\end{figure}
+
+
+\end{landscape}
+\end{document}
