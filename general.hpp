@@ -1,11 +1,19 @@
 #define MSTR deque<char>
-#define OCTAGON_TEX "tex/octagon_template.tex"
-#define ROTATED_OCTAGON_TEX "tex/octagon_template_rotated.tex"
-#define HEXAGON_TEX "tex/hexagon_template.tex"
-#define ROTATED_HEXAGON_TEX "tex/hexagon_template_rotated.tex"
-#define PENTAGON_TEX "tex/pentagon_template.tex"
+
+#define MONOGON_TEX "tex/monogon_template.tex"
+#define DIAGON_TEX "tex/diagon_template.tex"
+#define TRIGON_TEX "tex/trigon_template.tex"
 #define TETRAGON_TEX "tex/tetragon_template.tex"
-#define TRIANGLE_TEX "tex/triangle_template.tex"
+#define PENTAGON_TEX "tex/pentagon_template.tex"
+#define HEXAGON_TEX "tex/hexagon_template.tex"
+#define GEPTAGON_TEX "tex/geptagon_template.tex"
+#define OCTAGON_TEX "tex/octagon_template.tex"
+
+#define ROTATED_DIAGON_TEX "tex/diagon_template_rotated.tex"
+#define ROTATED_TETRAGON_TEX "tex/tetragon_template_rotated.tex"
+#define ROTATED_HEXAGON_TEX "tex/hexagon_template_rotated.tex"
+#define ROTATED_OCTAGON_TEX "tex/octagon_template_rotated.tex"
+
 #define MAX_COLOR 6
 #define LEN_LIMIT 30
 #ifndef PRINT_ZEROS
@@ -324,12 +332,17 @@ void draw_graph(const vector<MSTR>& v, const string& tpl_path, const VPII& mord,
 }
 void draw_graph(const vector<MSTR>& v, const VPII& mord,char split=0){
 	VS paths(9);
-	paths[3]=TRIANGLE_TEX;
+	paths[1]=MONOGON_TEX;
+	paths[2]=DIAGON_TEX;
+	paths[3]=TRIGON_TEX;
 	paths[4]=TETRAGON_TEX;
 	paths[5]=PENTAGON_TEX;
 	paths[6]=HEXAGON_TEX;
+	paths[7]=GEPTAGON_TEX;
 	paths[8]=OCTAGON_TEX;
 #ifdef ROTATED
+	paths[2]=ROTATED_DIAGON_TEX;
+	paths[4]=ROTATED_TETRAGON_TEX;
 	paths[6]=ROTATED_HEXAGON_TEX;
 	paths[8]=ROTATED_OCTAGON_TEX;
 #endif
